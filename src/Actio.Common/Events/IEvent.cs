@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Actio.Common.Commands
+namespace Actio.Common.Events
 {
     /// <summary>
-    /// Mark command to require authenticated user
+    /// Marker interface
     /// </summary>
-    public interface IAuthenticatedCommand : ICommand
+    public interface IEvent
     {
-        Guid UserId { get; set; }
+
     }
 }
