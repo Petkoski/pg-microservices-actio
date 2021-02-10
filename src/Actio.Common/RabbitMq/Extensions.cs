@@ -22,6 +22,7 @@ namespace Actio.Common.RabbitMq
         //        cfg.FromDeclaredQueue(q => q.WithName(GetQueueName<TCommand>()))));
 
         //RawRabbit version="2.0.0-rc5"
+        //Source: https://github.com/PacktPublishing/.NET-Core-Microservices/issues/2
         public static Task WithCommandHandlerAsync<TCommand>(this IBusClient bus,
             ICommandHandler<TCommand> handler) where TCommand : ICommand
             => bus.SubscribeAsync<TCommand>(msg => handler.HandleAsync(msg),
@@ -36,6 +37,7 @@ namespace Actio.Common.RabbitMq
         //        cfg.FromDeclaredQueue(q => q.WithName(GetQueueName<TEvent>()))));
 
         //RawRabbit version="2.0.0-rc5"
+        //Source: https://github.com/PacktPublishing/.NET-Core-Microservices/issues/2
         public static Task WithEventHandlerAsync<TEvent>(this IBusClient bus,
             IEventHandler<TEvent> handler) where TEvent : IEvent
             => bus.SubscribeAsync<TEvent>(msg => handler.HandleAsync(msg),
