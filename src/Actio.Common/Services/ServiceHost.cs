@@ -36,6 +36,7 @@ namespace Actio.Common.Services
                 .Build();
             var webHostBuilder = WebHost.CreateDefaultBuilder()
                 .UseConfiguration(config)
+                .UseDefaultServiceProvider(options => options.ValidateScopes = false)
                 .UseStartup<TStartup>();
             return new HostBuilder(webHostBuilder.Build());
         }
@@ -96,7 +97,7 @@ namespace Actio.Common.Services
 
             public override ServiceHost Build()
             {
-                throw new NotImplementedException();
+                return new ServiceHost(_webHost);
             }
         }
     }
