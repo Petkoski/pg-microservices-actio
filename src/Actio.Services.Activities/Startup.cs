@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Actio.Common.Commands;
+using Actio.Common.Mongo;
 using Actio.Common.RabbitMq;
 using Actio.Services.Activities.Handlers;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,7 @@ namespace Actio.Services.Activities
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Actio.Services.Activities", Version = "v1" });
             });
+            services.AddMongoDb(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<ICommandHandler<CreateActivity>, CreateActivityHandler>();
         }
