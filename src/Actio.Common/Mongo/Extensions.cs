@@ -29,6 +29,7 @@ namespace Actio.Common.Mongo
                 return client.GetDatabase(options.Value.Database);
             });
             service.AddScoped<IDatabaseInitializer, MongoInitializer>();
+            service.AddScoped<IDatabaseSeeder, MongoSeeder>();
         }
     }
 }
