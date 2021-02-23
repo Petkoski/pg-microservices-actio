@@ -17,9 +17,9 @@ namespace Actio.Services.Activities.Domain.Models
         public string Category { get; set; }
         [BsonElement("description")]
         public string Description { get; set; }
-        [BsonElement("userid")]
+        [BsonElement("userId")]
         public Guid UserId { get; set; }
-        [BsonElement("createdat")]
+        [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; }
 
         protected Activity()
