@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,8 +8,10 @@ namespace Actio.Services.Activities.Domain.Models
 {
     public class Category
     {
-        public Guid Id { get; protected set; }
-        public string Name { get; protected set; }
+        [BsonId]
+        public Guid Id { get; set; }
+        [BsonElement("name")]
+        public string Name { get; set; }
 
         protected Category()
         {

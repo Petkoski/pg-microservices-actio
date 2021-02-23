@@ -1,4 +1,5 @@
 ﻿using Actio.Common.Exceptions;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,18 @@ namespace Actio.Services.Activities.Domain.Models
 {
     public class Activity
     {
-        public Guid Id { get; protected set; }
-        public string Name { get; protected set; }
-        public string Category { get; protected set; }
-        public string Description { get; protected set; }
-        public Guid UserId { get; protected set; }
-        public DateTime CreatedAt { get; protected set; }
+        [BsonId]
+        public Guid Id { get; set; }
+        [BsonElement("name")]
+        public string Name { get; set; }
+        [BsonElement("category")]
+        public string Category { get; set; }
+        [BsonElement("description")]
+        public string Description { get; set; }
+        [BsonElement("userid")]
+        public Guid UserId { get; set; }
+        [BsonElement("createdat")]
+        public DateTime CreatedAt { get; set; }
 
         protected Activity()
         {
