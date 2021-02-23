@@ -42,7 +42,7 @@ namespace Actio.Common.Mongo
 
         private void RegisterConvetions()
         {
-            ConventionRegistry.Register("ActionConventions", new MongoConvention(), x => true);
+            ConventionRegistry.Register("ActioConventions", new MongoConvention(), x => true);
         }
 
         private class MongoConvention : IConventionPack
