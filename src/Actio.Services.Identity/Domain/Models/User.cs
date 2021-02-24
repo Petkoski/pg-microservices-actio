@@ -1,4 +1,5 @@
 ﻿using Actio.Common.Exceptions;
+using Actio.Services.Identity.Domain.Services;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -43,5 +44,19 @@ namespace Actio.Services.Identity.Domain.Models
             Name = name;
             CreatedAt = DateTime.UtcNow;
         }
+
+        public void SetPassword(string password, IEncrypter encrypter)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ActioException("empty_password", $"Password can not be empty.");
+            }
+
+            Salt = encrypter.GetSalt(password);
+            Password = encrypter.GetHash(password, Salt);
+        }
+
+        public bool ValidatePassword(string password, IEncrypter encrypter)
+            => Password.Equals(encrypter.GetHash(password, Salt));
     }
 }
