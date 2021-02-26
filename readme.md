@@ -5,3 +5,4 @@
 - docker stop [containerid]
 - src\Actio.Api> dotnet run
 - src\Actio.Services.Activities> dotnet run --urls "http://*:5050"
+- src\Actio.Services.Identity> dotnet run --urls "http://*:5051"
