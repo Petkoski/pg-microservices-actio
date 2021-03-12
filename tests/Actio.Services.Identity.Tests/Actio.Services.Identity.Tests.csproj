@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Actio.Services.Identity\Actio.Services.Identity.csproj" />
+  </ItemGroup>
+
 </Project>
